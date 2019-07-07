@@ -1,0 +1,7 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Create user named 'molecule'.
+      user:
+        name: molecule

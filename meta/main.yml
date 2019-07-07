@@ -15,4 +15,5 @@ galaxy_info:
 
   galaxy_tags: []
 
-dependencies: []
+dependencies:
+  - oefenweb.ssh_keys
