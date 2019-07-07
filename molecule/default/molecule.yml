@@ -14,6 +14,9 @@ platforms:
     priveleged: true
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      vault_password_file: "${MOLECULE_SCENARIO_DIRECTORY}/.molecule-insecure-vault"
   lint:
     name: ansible-lint
 verifier:
