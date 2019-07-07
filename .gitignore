@@ -1,1 +1,2 @@
 molecule/*/tests/__pycache__/*
+*.log
