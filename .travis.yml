@@ -8,6 +8,7 @@ install:
   - ansible-galaxy install -r tests/requirements.yml
 
 script:
+  - ls -Rhal
   - yamllint .
   - ansible-lint .
   - ansible-playbook tests/prepare.yml --connection=local -vv
