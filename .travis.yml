@@ -10,4 +10,5 @@ install:
 script:
   - yamllint .
   - ansible-lint .
-  - ansible-playbook tests/test.yml --connection=local -vv
+  - ansible-playbook tests/prepare.yml --connection=local -vv
+  - ansible-playbook tests/provision.yml --connection=local -vv
