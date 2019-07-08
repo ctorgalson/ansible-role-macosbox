@@ -15,3 +15,4 @@ ssh_keys_authorized_keys:
   - owner: "{{ key_owner }}"
     group: "{{ key_group }}"
     src: "{{ playbook_dir }}/files/keys/id_rsa.pub"
+ssh_keys_known_hosts: []
