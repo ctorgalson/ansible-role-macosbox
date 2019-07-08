@@ -1,5 +1,5 @@
 ---
-- name: Run ctorgalson.macos_hostname role on macOS infrastructure.
+- name: Run ctorgalson.macosbox role on macOS infrastructure.
   hosts: all
   gather_facts: true
   vars:
