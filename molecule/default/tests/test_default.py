@@ -16,11 +16,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ])
 def test_files_and_directories(host, user, path, file, mode):
     f = host.file('/home/{}/{}/{}'.format(user, path, file))
-
-    if file:
-        is_type = 'is_file'
-    else:
-        is_type = 'is_directory'
+    is_type = 'is_file' if file else 'is_directory'
 
     assert f.exists
     assert getattr(f, is_type)
