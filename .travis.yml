@@ -1,0 +1,13 @@
+---
+os: osx
+osx_image: xcode10.2
+
+install:
+  - pip3 install ansible ansible-lint yamllint
+  - mv tests/ansible.cfg .
+  - ansible-galaxy install -r tests/requirements.yml
+
+script:
+  - yamllint .
+  - ansible-lint .
+  - ansible-playbook tests/test.yml --connection=local -vv
