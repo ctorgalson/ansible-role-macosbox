@@ -7,4 +7,3 @@
     - role: ansible-role-macosbox
       become: true
   tasks:
-
