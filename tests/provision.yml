@@ -4,6 +4,7 @@
   gather_facts: true
   vars:
   roles:
-    - ansible-role-macosbox
+    - role: ansible-role-macosbox
+      become: true
   tasks:
 
