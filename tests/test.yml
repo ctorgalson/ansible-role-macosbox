@@ -1,0 +1,9 @@
+---
+- name: Run ctorgalson.macos_hostname role on macOS infrastructure.
+  hosts: all
+  gather_facts: true
+  vars:
+  roles:
+    - ansible-role-macosbox
+  tasks:
+
