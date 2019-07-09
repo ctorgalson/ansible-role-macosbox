@@ -27,6 +27,13 @@
 
     - name: Verify ssh keys exist and have correct properties.
       block:
+        - name: Debug the contents of the ssh directory.
+          command: "ls -hal ."
+          args:
+            chdir: "{{ mb_ssh_dir }}"
+          become: true
+          become_user: "{{ mb_user }}"
+
         - name: First find the LOCAL ssh keys.
           find:
             paths: "{{ mb_ssh_dir }}"

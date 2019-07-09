@@ -13,6 +13,4 @@ script:
   - ansible-lint .
   - ansible-playbook tests/prepare.yml -vv
   - ansible-playbook tests/provision.yml -vv
-  - sudo -i
-  - ls -hal /Users/macosbox/.ssh
   - ansible-playbook tests/test.yml -vv
