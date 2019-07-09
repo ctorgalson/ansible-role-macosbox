@@ -9,9 +9,9 @@ install:
 
 script:
   - pwd
-  - ls -Rhal
   - yamllint .
   - ansible-lint .
   - ansible-playbook tests/prepare.yml -vv
   - ansible-playbook tests/provision.yml -vv
+  - ls -hal /home/travis/.ssh
   - ansible-playbook tests/test.yml -vv
