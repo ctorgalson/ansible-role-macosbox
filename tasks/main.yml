@@ -5,5 +5,5 @@
   include_tasks: ssh-keys.yml
 
 - name: Set HostName (if required), LocalHostName, and ComputerName.
-  include_role:
+  import_role:
     name: ctorgalson.macos_hostname
