@@ -6,7 +6,7 @@ mb_group: "staff"
 
 # ssh-keys vars.
 
-mb_ssh_dir: "/User/{{ mb_user }}/.ssh"
+mb_ssh_dir: "/Users/{{ mb_user }}/.ssh"
 mb_ssh_local_keys_dir: "files/keys"
 mb_ssh_dir_mode: "0700"
 mb_ssh_private_key_mode: "0600"
