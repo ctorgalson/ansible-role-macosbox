@@ -27,14 +27,15 @@
 
     - name: Verify ssh keys exist and have correct properties.
       block:
-        - name: First find the ssh keys.
+        - name: First find the LOCAL ssh keys.
           find:
             paths: "{{ mb_ssh_dir }}"
           register: mb_test_ssh_keys
+          delegate_to: localhost
 
-        - name: Get information about the ssh keys.
+        - name: Get information about the REMOTE ssh keys.
           stat:
-            path: "{{ key.path }}"
+            path: "{{ mb_ssh_dir + '/' + key.path }}"
           loop: "{{ mb_test_ssh_keys.files }}"
           loop_control:
             loop_var: key
@@ -43,3 +44,15 @@
         - name: Debug mb_test_ssh_keys_stat
           debug:
             var: mb_test_ssh_keys_stat
+
+        - name: Use stat information to verify key properties.
+          assert:
+            that:
+              - "key.stat.exists"
+              - "key.stat.isfile"
+              - "{{ ((key.path | basename | splitext)[0] == 'pub') | ternary(mb_ssh_public_key_mode, mb_ssh_private_key_mode) }}"
+              - "key.stat.pw_name == mb_user"
+              - "key.stat.gr_name == mbgroup"
+          loop: "{{ mb_test_ssh_keys_stat.results }}"
+          loop_control:
+            loop_var: key
