@@ -35,7 +35,7 @@
         - name: Get information about the ssh keys.
           stat:
             path: "{{ key.path }}"
-          loop: "{{ mb_test_ssh_keys }}"
+          loop: "{{ mb_test_ssh_keys.files }}"
           loop_control:
             loop_var: key
           register: mb_test_ssh_keys_stat
