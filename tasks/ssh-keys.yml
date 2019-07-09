@@ -15,7 +15,7 @@
     dest: "{{ mb_ssh_dir }}"
     owner: "{{ mb_user }}"
     group: "{{ mb_group }}"
-    mode: "{{ ((item | splitext)[0] == 'pub') | ternary(mb_ssh_public_key_mode, mb_ssh_private_key_mode) }}"
+    mode: "{{ ((key | splitext)[0] == 'pub') | ternary(mb_ssh_public_key_mode, mb_ssh_private_key_mode) }}"
   loop: "{{ query('fileglob',  mb_ssh_local_keys_dir + '/*') }}"
   loop_control:
     loop_var: key
