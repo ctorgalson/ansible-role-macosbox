@@ -2,6 +2,9 @@
 os: osx
 osx_image: xcode10.2
 
+language: python
+cache: pip
+
 install:
   - pip3 install ansible ansible-lint yamllint
   - mv tests/_ansible.cfg ./ansible.cfg
