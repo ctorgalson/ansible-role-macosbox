@@ -3,6 +3,10 @@
   hosts: all
   gather_facts: true
   tasks:
+    - name: Load all default variables.
+      include_vars:
+        dir: ../defaults
+
     # Test ssh keys
     - name: Verify ssh directory exists and has correct properties.
       block:
