@@ -1,0 +1,20 @@
+---
+- name: Run ctorgalson.macosbox role on macOS infrastructure.
+  hosts: all
+  gather_facts: true
+  tasks:
+    # Test ssh keys
+    - name: Verify ssh directory exists and has correct properties.
+      block:
+        - name: Get information about ssh directory.
+          stat:
+            path: "{{ mb_ssh_dir }}"
+          register: mb_test_ssh_dir
+
+        assert:
+          that:
+            - "mb_test_ssh_dir.stat.exists"
+            - "mb_test_ssh_dir.stat.isdir"
+            - "mb_test_ssh_dir.stat.mode == mb_ssh_dir_mode"
+            - "mb_test_ssh_dir.stat.pw_name == mb_user"
+            - "mb_test_ssh_dir.stat.gr_name == mb_group"

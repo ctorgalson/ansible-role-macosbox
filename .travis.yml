@@ -12,5 +12,6 @@ script:
   - ls -Rhal
   - yamllint .
   - ansible-lint .
-  - ansible-playbook tests/prepare.yml --connection=local -vv
-  - ansible-playbook tests/provision.yml --connection=local -vv
+  - ansible-playbook tests/prepare.yml -vv
+  - ansible-playbook tests/provision.yml -vv
+  - ansible-playbook tests/test.yml -vv
