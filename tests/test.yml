@@ -39,3 +39,7 @@
           loop_control:
             loop_var: key
           register: mb_test_ssh_keys_stat
+
+        - name: Debug mb_test_ssh_keys_stat
+          debug:
+            var: mb_test_ssh_keys_stat
