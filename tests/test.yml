@@ -31,8 +31,6 @@
           command: "ls -hal ."
           args:
             chdir: "{{ mb_ssh_dir }}"
-          become: true
-          become_user: "{{ mb_user }}"
 
         - name: First find the LOCAL ssh keys.
           find:
