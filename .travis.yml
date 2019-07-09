@@ -11,6 +11,7 @@ script:
   - pwd
   - yamllint .
   - ansible-lint .
+  - ansible-galaxy install -r tests/requirements.yml
   - ansible-playbook tests/prepare.yml -vv
   - ansible-playbook tests/provision.yml -vv
   - ansible-playbook tests/test.yml -vv
