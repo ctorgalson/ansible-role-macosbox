@@ -77,4 +77,4 @@
           - "mb_test_authorized_keys.stat.mode == mb_ssh_authorized_keys_mode"
           - "mb_test_authorized_keys.stat.pw_name == mb_user"
           - "mb_test_authorized_keys.stat.pw_group == mb_group"
-        fail_msg: "Problem with authorized_keys existence, ownership, or mode."
+      fail_msg: "Problem with authorized_keys existence, ownership, or mode."
