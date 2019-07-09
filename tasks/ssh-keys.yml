@@ -19,3 +19,15 @@
   loop: "{{ query('fileglob',  mb_ssh_local_keys_dir + '/*') }}"
   loop_control:
     loop_var: key
+
+- name: Copy public keys into authorized_keys file.
+  lineinfile:
+    path: "{{ mb_ssh_dir }}/authorized_keys"
+    line: "{{ lookup('file', key) }}"
+    create: true
+    owner: "{{ mb_user }}"
+    group: "{{ mb_group }}"
+    mode: "{{ mb_ssh_authorized_keys_mode }}"
+  loop: "{{ query('fileglob', mb_ssh_local_keys_dir + '/*.pub') }}"
+  loop_control:
+    loop_var: key

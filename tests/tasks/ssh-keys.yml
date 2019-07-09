@@ -34,7 +34,7 @@
           - "mb_test_ssh_private_key.stat.gr_name == mb_group"
         fail_msg: "Problem with private key existence, ownership, or mode."
 
-    - name: Get infromation about remote public key.
+    - name: Get information about remote public key.
       stat:
         path: "{{ mb_ssh_dir + '/id_rsa.pub' }}"
       register: mb_test_ssh_public_key
@@ -47,3 +47,34 @@
           - "mb_test_ssh_public_key.stat.pw_name == mb_user"
           - "mb_test_ssh_public_key.stat.gr_name == mb_group"
         fail_msg: "Problem with public key existence, ownership, or mode."
+
+- name: Verify contents of authorized_keys file.
+  block:
+    - name: Store contents of public key file.
+      set_fact:
+        mb_test_ssh_public_key_contents: "{{ lookup('file', 'files/keys/id_rsa.pub') }}"
+
+    - name: Store contents of authorized_keys file.
+      command: "cat id_rsa.pub"
+      args:
+        chdir: "{{ mb_ssh_dir }}"
+      register: mb_test_ssh_authorized_keys_contents
+
+    - name: Compare key contents to authorized_keys contents.
+      assert:
+        that: "mb_test_ssh_public_key_contents in mb_test_ssh_authorized_keys_contents.stdout"
+        fail_msg: "Contents of id_rsa.pub were not found in authorized_keys file."
+
+    - name: Get information about authorized_keys file.
+      stat:
+        path: "{{ mb_ssh_dir }}/authorized_keys"
+      register: mb_test_authorized_keys
+
+    - name: Use stat information to verify file properties.
+      assert:
+        that:
+          - "mb_test_authorized_keys.stat.exists"
+          - "mb_test_authorized_keys.stat.mode == mb_ssh_authorized_keys_mode"
+          - "mb_test_authorized_keys.stat.pw_name == mb_user"
+          - "mb_test_authorized_keys.stat.gr_name == mb_group"
+        fail_msg: "Problem with authorized_keys existence, ownership, or mode."
