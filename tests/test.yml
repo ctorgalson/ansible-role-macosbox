@@ -56,8 +56,8 @@
               - "key.stat.exists"
               - "key.key.stat.isfile"
               # - "{{ ((key.key.stat.path | basename | splitext)[0] == 'pub') | ternary(mb_ssh_public_key_mode, mb_ssh_private_key_mode) }}"
-              - "key.key.stat.pw_name == mb_user"
-              - "key.key.stat.gr_name == mbgroup"
+              - "key.stat.pw_name == mb_user"
+              - "key.stat.gr_name == mbgroup"
           loop: "{{ mb_test_ssh_keys_stat.results }}"
           loop_control:
             loop_var: key
