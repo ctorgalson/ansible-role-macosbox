@@ -63,7 +63,7 @@
     - name: Compare key contents to authorized_keys contents.
       assert:
         that: "mb_test_ssh_public_key_contents in mb_test_ssh_authorized_keys_contents.stdout"
-      fail_msg: "Contents of id_rsa.pub were not found in authorized_keys file."
+        fail_msg: "Contents of id_rsa.pub were not found in authorized_keys file."
 
     - name: Get information about authorized_keys file.
       stat:
@@ -77,4 +77,4 @@
           - "mb_test_authorized_keys.stat.mode == mb_ssh_authorized_keys_mode"
           - "mb_test_authorized_keys.stat.pw_name == mb_user"
           - "mb_test_authorized_keys.stat.pw_group == mb_group"
-      fail_msg: "Problem with authorized_keys existence, ownership, or mode."
+        fail_msg: "Problem with authorized_keys existence, ownership, or mode."
