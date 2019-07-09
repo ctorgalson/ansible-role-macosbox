@@ -1,0 +1,7 @@
+---
+# ssh-keys vars.
+
+mb_ssh_dir: "/User/{{ mb_user }}/.ssh"
+mb_ssh_dir_mode: "u=rwx,go="
+mb_ssh_private_key_mode: "u=rw,go="
+mb_ssh_public_key_mode: "u=rw,go="

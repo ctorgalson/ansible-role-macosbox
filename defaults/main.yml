@@ -1,2 +1,5 @@
 ---
 # defaults file for ansible-role-devbox
+
+mb_user: "macosbox"
+mb_group: "staff"

@@ -1,0 +1,21 @@
+---
+# Tasks related to ssh-key management.
+
+- name: Ensure user ssh directory is present.
+  file:
+    path: "{{ mb_ssh_dir }}"
+    owner: "{{ mb_user }}"
+    group: "{{ mb_group }}"
+    mode: "{{ mb_ssh_dir_mode }}"
+    state: directory
+
+- name: Copy keys from controller to remote host.
+  copy:
+    src: "{{ key }}"
+    dest: "{{ mb_ssh_dir }}"
+    owner: "{{ mb_user }}"
+    group: "{{ mb_group }}"
+    mode: "{{ ((item | splitext)[0] == 'pub') | ternary(mb_ssh_public_key_mode, mb_ssh_private_key_mode) }}"
+  loop: "{{ lookup('fileglob', 'files/keys/*') }}"
+  loop_control:
+    loop_var: key
