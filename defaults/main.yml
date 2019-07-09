@@ -12,3 +12,9 @@ mb_ssh_dir_mode: "0700"
 mb_ssh_private_key_mode: "0600"
 mb_ssh_public_key_mode: "0644"
 mb_ssh_authorized_keys_mode: "0644"
+
+# ctorgalson.macos_hostname vars.
+
+mh_hostname: ""
+mh_localhostname: "MacOsBox"
+mh_computername: "macOS Box"
