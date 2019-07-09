@@ -1,0 +1,49 @@
+---
+# ssh-keys testing tasks.
+
+- name: Verify ssh directory exists and has correct properties.
+  block:
+    - name: Get information about ssh directory.
+      stat:
+        path: "{{ mb_ssh_dir }}"
+      register: mb_test_ssh_dir_stat
+
+    - name: Use stat information to verify properties.
+      assert:
+        that:
+          - "mb_test_ssh_dir_stat.stat.exists"
+          - "mb_test_ssh_dir_stat.stat.isdir"
+          - "mb_test_ssh_dir_stat.stat.mode == mb_ssh_dir_mode"
+          - "mb_test_ssh_dir_stat.stat.pw_name == mb_user"
+          - "mb_test_ssh_dir_stat.stat.gr_name == mb_group"
+        fail_msg: "Problem with ssh directory existence, ownership, or mode."
+
+- name: Verify ssh keys exist and have correct properties.
+  block:
+    - name: Get infromation about remote private key.
+      stat:
+        path: "{{ mb_ssh_dir + '/id_rsa' }}"
+      register: mb_test_ssh_private_key
+
+    - name: Use stat information to verify key properties.
+      assert:
+        that:
+          - "mb_test_ssh_private_key.stat.exists"
+          - "mb_test_ssh_private_key.stat.mode == mb_ssh_private_key_mode"
+          - "mb_test_ssh_private_key.stat.pw_name == mb_user"
+          - "mb_test_ssh_private_key.stat.gr_name == mb_group"
+        fail_msg: "Problem with private key existence, ownership, or mode."
+
+    - name: Get infromation about remote public key.
+      stat:
+        path: "{{ mb_ssh_dir + '/id_rsa.pub' }}"
+      register: mb_test_ssh_public_key
+
+    - name: Use stat information to verify key properties.
+      assert:
+        that:
+          - "mb_test_ssh_public_key.stat.exists"
+          - "mb_test_ssh_public_key.stat.mode == mb_ssh_public_key_mode"
+          - "mb_test_ssh_public_key.stat.pw_name == mb_user"
+          - "mb_test_ssh_public_key.stat.gr_name == mb_group"
+        fail_msg: "Problem with public key existence, ownership, or mode."

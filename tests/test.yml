@@ -1,0 +1,13 @@
+---
+- name: Run ctorgalson.macosbox role on macOS infrastructure.
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Load all default variables.
+      include_vars:
+        dir: ../defaults
+
+    # Test ssh keys.
+    - name: Include test tasks for ssh-keys.
+      include_tasks: "tasks/ssh-keys.yml"

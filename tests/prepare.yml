@@ -1,0 +1,10 @@
+---
+- name: Prepare to run ctorgalson.macosbox role on macOS infrastructure.
+  hosts: all
+  gather_facts: true
+  become: true
+  vars:
+  tasks:
+    - name: Create user for testing.
+      user:
+        name: macosbox
