@@ -58,7 +58,7 @@
       command: "cat id_rsa.pub"
       args:
         chdir: "{{ mb_ssh_dir }}"
-      store: mb_test_ssh_authorized_keys_contents
+      register: mb_test_ssh_authorized_keys_contents
 
     - name: Compare key contents to authorized_keys contents.
       assert:
