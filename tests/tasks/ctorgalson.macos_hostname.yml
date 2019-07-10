@@ -1,0 +1,11 @@
+---
+# ctorgalson.macos_hostname testing tasks.
+
+- name: Get LocalHostName and ComputerName.
+  command: "scutil --get {{ property }}"
+  loop:
+    - "LocalHostName"
+    - "ComputerName"
+  loop_control:
+    loop_var: property
+  register: mb_test_scutil_info

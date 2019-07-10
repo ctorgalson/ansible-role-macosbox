@@ -11,3 +11,7 @@
     # Test ssh keys.
     - name: Include test tasks for ssh-keys.
       include_tasks: "tasks/ssh-keys.yml"
+
+    # Test ctorgalson.macos_hostname.
+    - name: Include test tasks for ctorgalson.macos_hostname role.
+      include_tasks: "tasks/ctorgalson.macos_hostname.yml"
