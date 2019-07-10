@@ -4,7 +4,7 @@
   gather_facts: true
   vars:
     mh_localhostname: "MacOsBoxTravis"
-    mn_computername: "macOS Box Travis"
+    mh_computername: "macOS Box Travis"
   roles:
     - role: ansible-role-macosbox
       become: true
