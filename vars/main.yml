@@ -1,2 +1,6 @@
 ---
 # vars file for ansible-role-devbox
+
+mh_hostname: ""
+mh_localhostname: "MacOsBox"
+mh_computername: "macOS Box"
