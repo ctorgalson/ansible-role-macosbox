@@ -9,3 +9,7 @@
   loop_control:
     loop_var: property
   register: mb_test_scutil_info
+
+- name: Debug mb_test_scutil_info.
+  debug:
+    var: mb_test_scutil_info
