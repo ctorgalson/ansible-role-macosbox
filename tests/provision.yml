@@ -2,10 +2,6 @@
 - name: Run ctorgalson.macosbox role on macOS infrastructure.
   hosts: all
   gather_facts: true
-  vars:
-    mh_localhostname: "MacOsBoxTravis"
-    mh_computername: "macOS Box Travis"
   roles:
     - role: ansible-role-macosbox
       become: true
-  tasks:
