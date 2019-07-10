@@ -1,0 +1,24 @@
+---
+# ctorgalson.macos_hostname testing tasks.
+
+- name: Compare expected and set value for LocalHostName.
+  block:
+    - name: Get LocalHostName.
+      command: "scutil --get LocalHostName"
+      register: mb_test_localhostname
+
+    - name: Verify LocalHostName.
+      assert:
+        that:
+          - "mb_test_localhostname.stdout == mh_localhostname"
+
+- name: Compare expected and set value for ComputerName.
+  block:
+    - name: Get ComputerName.
+      command: "scutil --get ComputerName"
+      register: mb_test_computername
+
+    - name: Verify ComputerName.
+      assert:
+        that:
+          - "mb_test_computername.stdout == mh_computername"

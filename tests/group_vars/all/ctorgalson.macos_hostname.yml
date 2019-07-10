@@ -1,0 +1,5 @@
+---
+# ctorgalson.macos_hostname vars.
+
+mh_localhostname: "MacOsBoxTravis"
+mh_computername: "macOS Box Travis"

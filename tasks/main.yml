@@ -3,3 +3,7 @@
 
 - name: Set up ssh keys.
   include_tasks: ssh-keys.yml
+
+- name: Set HostName (if required), LocalHostName, and ComputerName.
+  import_role:
+    name: ctorgalson.macos_hostname
