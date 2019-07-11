@@ -1,9 +1,6 @@
 ---
 # tasks file for ansible-role-devbox
 
-- name: Set up ssh keys.
-  include_tasks: ssh-keys.yml
-
 - name: Copy SSH keys and authorized keys to host.
   import_role:
     name: ctorgalson.ssh_keys
