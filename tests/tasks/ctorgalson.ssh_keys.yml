@@ -1,11 +1,19 @@
 ---
 # ssh-keys testing tasks.
 
+- name: Show contents of .ssh directory.
+  command: "ls -hal /Users/macosbox/.ssh"
+  register: ssh_dir_contents
+
+- name: Debug ssh_dir_contents.
+  debug:
+    var: ssh_dir_contents
+
 - name: Verify ssh directory exists and has correct properties.
   block:
     - name: Get information about ssh directory.
       stat:
-        path: "{{ mb_ssh_dir }}"
+        path: "{{ ssh_ssh_dir }}"
       register: mb_test_ssh_dir_stat
 
     - name: Use stat information to verify properties.
@@ -13,7 +21,7 @@
         that:
           - "mb_test_ssh_dir_stat.stat.exists"
           - "mb_test_ssh_dir_stat.stat.isdir"
-          - "mb_test_ssh_dir_stat.stat.mode == mb_ssh_dir_mode"
+          - "mb_test_ssh_dir_stat.stat.mode == ssh_ssh_dir_mode"
           - "mb_test_ssh_dir_stat.stat.pw_name == mb_user"
           - "mb_test_ssh_dir_stat.stat.gr_name == mb_group"
         fail_msg: "Problem with ssh directory existence, ownership, or mode."
@@ -22,7 +30,7 @@
   block:
     - name: Get infromation about remote private key.
       stat:
-        path: "{{ mb_ssh_dir + '/id_rsa' }}"
+        path: "{{ ssh_ssh_dir + '/id_rsa' }}"
       register: mb_test_ssh_private_key
 
     - name: Use stat information to verify key properties.
@@ -36,7 +44,7 @@
 
     - name: Get information about remote public key.
       stat:
-        path: "{{ mb_ssh_dir + '/id_rsa.pub' }}"
+        path: "{{ ssh_ssh_dir + '/id_rsa.pub' }}"
       register: mb_test_ssh_public_key
 
     - name: Use stat information to verify key properties.
@@ -57,7 +65,7 @@
     - name: Store contents of authorized_keys file.
       command: "cat id_rsa.pub"
       args:
-        chdir: "{{ mb_ssh_dir }}"
+        chdir: "{{ ssh_ssh_dir }}"
       register: mb_test_ssh_authorized_keys_contents
 
     - name: Compare key contents to authorized_keys contents.
@@ -67,7 +75,7 @@
 
     - name: Get information about authorized_keys file.
       stat:
-        path: "{{ mb_ssh_dir }}/authorized_keys"
+        path: "{{ ssh_ssh_dir }}/authorized_keys"
       register: mb_test_authorized_keys
 
     - name: Use stat information to verify file properties.
