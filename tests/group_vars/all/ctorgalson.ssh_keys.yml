@@ -1,0 +1,9 @@
+---
+# ctorgalson.ssh_keys vars.
+
+ssh_user: "travis"
+ssh_ssh_keys:
+  - src: "files/keys/id_rsa"
+  - src: "files/keys/id_rsa.pub"
+ssh_authorized_keys:
+  - "files/keys/id_rsa.pub"
