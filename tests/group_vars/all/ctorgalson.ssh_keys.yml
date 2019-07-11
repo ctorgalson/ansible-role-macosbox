@@ -5,6 +5,7 @@ ssh_user: "macosbox"
 ssh_user_home: "/Users/{{ ssh_user }}"
 ssh_ssh_dir: "{{ ssh_user_home }}/.ssh"
 ssh_ssh_dir_group: "staff"
+ssh_ssh_dir_mode: "0700"
 ssh_ssh_keys:
   - src: "files/keys/id_rsa"
   - src: "files/keys/id_rsa.pub"
