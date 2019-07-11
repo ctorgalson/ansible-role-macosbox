@@ -1,7 +1,7 @@
 ---
 # ctorgalson.ssh_keys vars.
 
-ssh_user: "travis"
+ssh_user: "macosbox"
 ssh_ssh_keys:
   - src: "files/keys/id_rsa"
   - src: "files/keys/id_rsa.pub"
