@@ -3,6 +3,7 @@
 
 ssh_user: "macosbox"
 ssh_user_home: "/Users/{{ macosbox }}"
+ssh_ssh_dir: "{{ ssh_user_home }}/.ssh"
 ssh_ssh_keys:
   - src: "files/keys/id_rsa"
   - src: "files/keys/id_rsa.pub"
