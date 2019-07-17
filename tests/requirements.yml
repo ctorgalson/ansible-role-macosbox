@@ -1,3 +1,5 @@
 ---
 - src: ctorgalson.macos_hostname
   version: v0.2.2
+- src: ctorgalson.ssh_keys
+  version: v0.1.0
