@@ -10,6 +10,8 @@ mb_test_ssh_ssh_dir_mode: "0700"
 mb_test_ssh_ssh_keys:
   - src: "files/keys/id_rsa"
   - src: "files/keys/id_rsa.pub"
+mb_test_ssh_private_key_mode: "0600"
+mb_test_ssh_public_key_mode: "0644"
 mb_test_ssh_authorized_keys_mode: "0600"
 mb_test_ssh_authorized_keys:
   - "files/keys/id_rsa.pub"

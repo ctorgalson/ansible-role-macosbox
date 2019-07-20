@@ -37,7 +37,7 @@
       assert:
         that:
           - "mb_test_ssh_private_key.stat.exists"
-          - "mb_test_ssh_private_key.stat.mode == mb_ssh_private_key_mode"
+          - "mb_test_ssh_private_key.stat.mode == mb_test_ssh_private_key_mode"
           - "mb_test_ssh_private_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
           - "mb_test_ssh_private_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with private key existence, ownership, or mode."
@@ -51,7 +51,7 @@
       assert:
         that:
           - "mb_test_ssh_public_key.stat.exists"
-          - "mb_test_ssh_public_key.stat.mode == mb_ssh_public_key_mode"
+          - "mb_test_ssh_public_key.stat.mode == mb_test_ssh_public_key_mode"
           - "mb_test_ssh_public_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
           - "mb_test_ssh_public_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with public key existence, ownership, or mode."
