@@ -5,6 +5,10 @@
   become: true
   vars:
   tasks:
+    - name: Load all default variables.
+      include_vars:
+        dir: ../defaults
+
     - name: Create user for testing.
       user:
         name: macosbox

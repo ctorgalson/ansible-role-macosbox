@@ -15,3 +15,4 @@
     # Test ctorgalson.macos_hostname.
     - name: Include test tasks for ctorgalson.macos_hostname role.
       include_tasks: "tasks/ctorgalson.macos_hostname.yml"
+      when: false

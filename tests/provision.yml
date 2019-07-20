@@ -2,6 +2,10 @@
 - name: Run ctorgalson.macosbox role on macOS infrastructure.
   hosts: all
   gather_facts: true
+  pre_tasks:
+    - name: Load all default variables.
+      include_vars:
+        dir: ../defaults
   roles:
     - role: ansible-role-macosbox
       become: true
