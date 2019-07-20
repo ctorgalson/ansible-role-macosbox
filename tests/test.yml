@@ -4,7 +4,7 @@
   gather_facts: true
   become: true
   tasks:
-    - name: Load all default variables.
+    - name: Load all default variables from this role.
       include_vars:
         dir: ../defaults
 
