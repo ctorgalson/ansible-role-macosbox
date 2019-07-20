@@ -1,2 +1,4 @@
 ---
 # vars file for ansible-role-devbox
+
+ssh_user_home: "/Users/{{ ssh_user }}"
