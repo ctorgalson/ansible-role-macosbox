@@ -1,0 +1,4 @@
+exclude_paths:
+  - /Users/travis/build/ctorgalson/ctorgalson.files
+  - /Users/travis/build/ctorgalson/ctorgalson.macos_hostname
+  - /Users/travis/build/ctorgalson/ctorgalson.ssh_keys

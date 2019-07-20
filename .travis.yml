@@ -5,6 +5,7 @@ osx_image: xcode10.2
 install:
   - pip3 install ansible ansible-lint yamllint
   - mv tests/_ansible.cfg ./ansible.cfg
+  - mv tests/_.ansible-lint ./.ansible-lint
   - ansible-galaxy install -r tests/requirements.yml
 
 script:
