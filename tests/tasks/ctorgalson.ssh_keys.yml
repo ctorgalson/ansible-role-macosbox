@@ -22,8 +22,8 @@
           - "mb_test_ssh_dir_stat.stat.exists"
           - "mb_test_ssh_dir_stat.stat.isdir"
           - "mb_test_ssh_dir_stat.stat.mode == mb_test_ssh_ssh_dir_mode"
-          - "mb_test_ssh_dir_stat.stat.pw_name == ssh_ssh_dir_owner"
-          - "mb_test_ssh_dir_stat.stat.gr_name == ssh_ssh_dir_group"
+          - "mb_test_ssh_dir_stat.stat.pw_name == mb_test_ssh_ssh_dir_owner"
+          - "mb_test_ssh_dir_stat.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with ssh directory existence, ownership, or mode."
 
 - name: Verify ssh keys exist and have correct properties.
@@ -38,8 +38,8 @@
         that:
           - "mb_test_ssh_private_key.stat.exists"
           - "mb_test_ssh_private_key.stat.mode == mb_ssh_private_key_mode"
-          - "mb_test_ssh_private_key.stat.pw_name == ssh_ssh_dir_owner"
-          - "mb_test_ssh_private_key.stat.gr_name == ssh_ssh_dir_group"
+          - "mb_test_ssh_private_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
+          - "mb_test_ssh_private_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with private key existence, ownership, or mode."
 
     - name: Get information about remote public key.
@@ -52,8 +52,8 @@
         that:
           - "mb_test_ssh_public_key.stat.exists"
           - "mb_test_ssh_public_key.stat.mode == mb_ssh_public_key_mode"
-          - "mb_test_ssh_public_key.stat.pw_name == ssh_ssh_dir_owner"
-          - "mb_test_ssh_public_key.stat.gr_name == ssh_ssh_dir_group"
+          - "mb_test_ssh_public_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
+          - "mb_test_ssh_public_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with public key existence, ownership, or mode."
 
 - name: Verify contents of authorized_keys file.
@@ -82,7 +82,7 @@
       assert:
         that:
           - "mb_test_authorized_keys.stat.exists"
-          - "mb_test_authorized_keys.stat.mode == ssh_authorized_keys_mode"
-          - "mb_test_authorized_keys.stat.pw_name == ssh_ssh_dir_owner"
-          - "mb_test_authorized_keys.stat.gr_name == ssh_ssh_dir_group"
+          - "mb_test_authorized_keys.stat.mode == mb_test_ssh_authorized_keys_mode"
+          - "mb_test_authorized_keys.stat.pw_name == mb_test_ssh_ssh_dir_owner"
+          - "mb_test_authorized_keys.stat.gr_name == mb_test_ssh_ssh_dir_group"
         fail_msg: "Problem with authorized_keys existence, ownership, or mode."
