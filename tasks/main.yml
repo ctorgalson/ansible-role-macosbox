@@ -12,4 +12,3 @@
     defaults_from: "main.yml"
     name: ctorgalson.macos_hostname
     public: true
-  when: false
