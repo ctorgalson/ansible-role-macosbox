@@ -5,7 +5,7 @@
   block:
     - name: Get information about ssh directory.
       stat:
-        path: "{{ mb_test_ssh_ssh_dir }}"
+        path: "{{ ssh_ssh_dir }}"
       register: mb_test_ssh_dir_stat
 
     - name: Use stat information to verify properties.
@@ -13,51 +13,51 @@
         that:
           - "mb_test_ssh_dir_stat.stat.exists"
           - "mb_test_ssh_dir_stat.stat.isdir"
-          - "mb_test_ssh_dir_stat.stat.mode == mb_test_ssh_ssh_dir_mode"
-          - "mb_test_ssh_dir_stat.stat.pw_name == mb_test_ssh_ssh_dir_owner"
-          - "mb_test_ssh_dir_stat.stat.gr_name == mb_test_ssh_ssh_dir_group"
+          - "mb_test_ssh_dir_stat.stat.mode == ssh_ssh_dir_mode"
+          - "mb_test_ssh_dir_stat.stat.pw_name == ssh_ssh_dir_owner"
+          - "mb_test_ssh_dir_stat.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with ssh directory existence, ownership, or mode."
 
 - name: Verify ssh keys exist and have correct properties.
   block:
     - name: Get infromation about remote private key.
       stat:
-        path: "{{ mb_test_ssh_ssh_dir + '/id_rsa' }}"
+        path: "{{ ssh_ssh_dir + '/id_rsa' }}"
       register: mb_test_ssh_private_key
 
     - name: Use stat information to verify key properties.
       assert:
         that:
           - "mb_test_ssh_private_key.stat.exists"
-          - "mb_test_ssh_private_key.stat.mode == mb_test_ssh_private_key_mode"
-          - "mb_test_ssh_private_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
-          - "mb_test_ssh_private_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
+          - "mb_test_ssh_private_key.stat.mode == ssh_private_key_mode"
+          - "mb_test_ssh_private_key.stat.pw_name == ssh_ssh_dir_owner"
+          - "mb_test_ssh_private_key.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with private key existence, ownership, or mode."
 
     - name: Get information about remote public key.
       stat:
-        path: "{{ mb_test_ssh_ssh_dir + '/id_rsa.pub' }}"
+        path: "{{ ssh_ssh_dir + '/id_rsa.pub' }}"
       register: mb_test_ssh_public_key
 
     - name: Use stat information to verify key properties.
       assert:
         that:
           - "mb_test_ssh_public_key.stat.exists"
-          - "mb_test_ssh_public_key.stat.mode == mb_test_ssh_public_key_mode"
-          - "mb_test_ssh_public_key.stat.pw_name == mb_test_ssh_ssh_dir_owner"
-          - "mb_test_ssh_public_key.stat.gr_name == mb_test_ssh_ssh_dir_group"
+          - "mb_test_ssh_public_key.stat.mode == ssh_public_key_mode"
+          - "mb_test_ssh_public_key.stat.pw_name == ssh_ssh_dir_owner"
+          - "mb_test_ssh_public_key.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with public key existence, ownership, or mode."
 
 - name: Verify contents of authorized_keys file.
   block:
     - name: Store contents of public key file.
       set_fact:
-        mb_test_ssh_public_key_contents: "{{ lookup('file', mb_test_ssh_ssh_keys.1.src) }}"
+        mb_test_ssh_public_key_contents: "{{ lookup('file', ssh_ssh_keys.1.src) }}"
 
     - name: Store contents of authorized_keys file.
       command: "cat id_rsa.pub"
       args:
-        chdir: "{{ mb_test_ssh_ssh_dir }}"
+        chdir: "{{ ssh_ssh_dir }}"
       register: mb_test_ssh_authorized_keys_contents
 
     - name: Compare key contents to authorized_keys contents.
@@ -74,7 +74,7 @@
       assert:
         that:
           - "mb_test_authorized_keys.stat.exists"
-          - "mb_test_authorized_keys.stat.mode == mb_test_ssh_authorized_keys_mode"
-          - "mb_test_authorized_keys.stat.pw_name == mb_test_ssh_ssh_dir_owner"
-          - "mb_test_authorized_keys.stat.gr_name == mb_test_ssh_ssh_dir_group"
+          - "mb_test_authorized_keys.stat.mode == ssh_authorized_keys_mode"
+          - "mb_test_authorized_keys.stat.pw_name == ssh_ssh_dir_owner"
+          - "mb_test_authorized_keys.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with authorized_keys existence, ownership, or mode."
