@@ -2,6 +2,7 @@
 # ctorgalson.ssh_keys vars.
 
 ssh_user: "macosbox"
+ssh_user_home: "/Users/{{ ssh_user }}"
 ssh_ssh_dir_group: "staff"
 ssh_ssh_keys:
   - src: "files/keys/id_rsa"
