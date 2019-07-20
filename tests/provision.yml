@@ -2,12 +2,6 @@
 - name: Run ctorgalson.macosbox role on macOS infrastructure.
   hosts: all
   gather_facts: true
-  vars:
-    ssh_ssh_keys: "{{ mb_test_ssh_ssh_keys }}"
-    ssh_authorized_keys: "{{ mb_test_ssh_authorized_keys }}"
-  pre_tasks:
-    - name: Debug setup.
-      setup:
   roles:
     - role: ansible-role-macosbox
       become: true
