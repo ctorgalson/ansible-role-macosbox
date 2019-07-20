@@ -2,3 +2,6 @@
 # vars file for ansible-role-devbox
 
 ssh_user_home: "/Users/{{ ssh_user }}"
+ssh_ssh_dir_group: "{{ mb_group }}"
+ssh_ssh_keys: []
+ssh_authorized_keys: []
