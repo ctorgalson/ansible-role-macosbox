@@ -13,7 +13,12 @@ mb_group: "staff"
 ssh_user: "{{ mb_user }}"
 ssh_user_home: "/Users/{{ ssh_user }}"
 ssh_ssh_dir_group: "{{ mb_group }}"
+ssh_ssh_keys: []
+ssh_authorized_keys: []
 
 # ctorgalson.macos_hostname vars.
 mh_localhostname: "macOsBox"
 mb_computername: "macOS Box"
+
+# ctorgalson.files vars.
+files_files: []

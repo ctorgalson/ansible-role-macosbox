@@ -12,3 +12,9 @@
     defaults_from: "main.yml"
     name: ctorgalson.macos_hostname
     public: true
+
+- name: Create default files and directories.
+  include_role:
+    defaults_from: "main.yml"
+    name: ctorgalson.files
+    public: true
