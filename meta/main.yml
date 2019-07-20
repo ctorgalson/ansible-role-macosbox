@@ -15,4 +15,7 @@ galaxy_info:
 
   galaxy_tags: []
 
-dependencies: []
+dependencies:
+  - role: ctorgalson.ssh_keys
+  - role: ctorgalson.macos_hostname
+  - role: ctorgalson.files

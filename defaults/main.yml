@@ -10,11 +10,11 @@ mb_group: "staff"
 # These are the minimum variables that ctorgalson.ssh_vars needs to at least
 # run on macOS. Probably one or both of `ssh_ssh_keys` and `ssh_authorized_keys`
 # should also be defined.
-# ssh_user: "{{ mb_user }}"
-# ssh_user_home: "/Users/{{ ssh_user }}"
-# ssh_ssh_dir_group: "{{ mb_group }}"
-# ssh_ssh_keys: []
-# ssh_authorized_keys: []
+ssh_user: "{{ mb_user }}"
+ssh_user_home: "/Users/{{ ssh_user }}"
+ssh_ssh_dir_group: "{{ mb_group }}"
+ssh_ssh_keys: []
+ssh_authorized_keys: []
 
 # ctorgalson.macos_hostname vars.
 mh_localhostname: "macOsBox"
