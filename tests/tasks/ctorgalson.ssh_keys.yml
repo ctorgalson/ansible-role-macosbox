@@ -1,6 +1,10 @@
 ---
 # ssh-keys testing tasks.
 
+- name: Include role vars.
+  include_vars:
+    file: ../defaults/main.yml
+
 - name: Verify ssh directory exists and has correct properties.
   block:
     - name: Get information about ssh directory.
