@@ -11,7 +11,7 @@ script:
   - yamllint .
   - ansible-lint .
   - ansible-playbook tests/prepare.yml -vv
-  - ansible-playbook tests/provision.yml -vv
+  - ansible-playbook tests/provision.yml -vvv
   - ansible-playbook tests/test.yml -vv
   - sudo ls -hal /Users/macosbox
   - sudo ls -hal /Users/macosbox/.ssh
