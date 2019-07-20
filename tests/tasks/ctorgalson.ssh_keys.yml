@@ -1,14 +1,6 @@
 ---
 # ssh-keys testing tasks.
 
-- name: Show contents of .ssh directory.
-  command: "ls -hal {{ mb_test_ssh_ssh_dir }}"
-  register: ssh_dir_contents
-
-- name: Debug ssh_dir_contents.
-  debug:
-    var: ssh_dir_contents
-
 - name: Verify ssh directory exists and has correct properties.
   block:
     - name: Get information about ssh directory.
