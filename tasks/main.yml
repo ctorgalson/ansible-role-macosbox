@@ -3,10 +3,12 @@
 
 - name: Copy SSH keys and authorized keys to host.
   include_role:
-    name: ctorgalson.ssh_keys
     defaults_from: "main.yml"
+    name: ctorgalson.ssh_keys
+    public: true
 
 - name: Set HostName (if required), LocalHostName, and ComputerName.
   include_role:
-    name: ctorgalson.macos_hostname
     defaults_from: "main.yml"
+    name: ctorgalson.macos_hostname
+    public: true
