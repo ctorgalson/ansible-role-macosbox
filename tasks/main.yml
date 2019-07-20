@@ -2,19 +2,19 @@
 # tasks file for ansible-role-devbox
 
 - name: Copy SSH keys and authorized keys to host.
-  include_role:
+  import_role:
     defaults_from: "main.yml"
     name: ctorgalson.ssh_keys
-    public: true
+    # public: true
 
 - name: Set HostName (if required), LocalHostName, and ComputerName.
-  include_role:
+  import_role:
     defaults_from: "main.yml"
     name: ctorgalson.macos_hostname
-    public: true
+    # public: true
 
 - name: Create default files and directories.
-  include_role:
+  import_role:
     defaults_from: "main.yml"
     name: ctorgalson.files
-    public: true
+    # public: true

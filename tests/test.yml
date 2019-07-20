@@ -8,10 +8,14 @@
       include_vars:
         dir: ../defaults
 
-    # Test ssh keys.
-    - name: Include test tasks for ssh-keys.
+    # Test ctorgalson.ssh_keys.
+    - name: Include test tasks for ctorgalson.ssh_keys role.
       include_tasks: "tasks/ctorgalson.ssh_keys.yml"
 
     # Test ctorgalson.macos_hostname.
     - name: Include test tasks for ctorgalson.macos_hostname role.
       include_tasks: "tasks/ctorgalson.macos_hostname.yml"
+
+    # Test ctorgalson.files.
+    - name: Include test tasks for ctorgalson.files role.
+      include_tasks: "tasks/ctorgalson.files.yml"
