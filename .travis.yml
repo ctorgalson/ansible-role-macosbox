@@ -14,6 +14,5 @@ script:
   - ansible-playbook tests/prepare.yml -vv
   - ansible-playbook tests/provision.yml -vvv
   - py.test -v tests/test.py
-  # - ansible-playbook tests/test.yml -vv
   - sudo ls -hal /Users/macosbox
   - sudo ls -hal /Users/macosbox/.ssh

@@ -30,3 +30,8 @@ def test_authorized_keys_contents(host):
 
     with host.sudo():
         assert source.content_string in dest.content_string
+
+
+""" ctorgalson.macos_hostname tests """
+
+
