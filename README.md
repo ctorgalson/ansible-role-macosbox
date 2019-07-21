@@ -22,13 +22,9 @@ providing some very minimal default values for its dependencies.
 
 ### `ctorgalson.files` defaults
 
-| Name                  | Default                 | Description |
-|-----------------------|-------------------------|-------------|
-| `ssh_user`            | `{{ mb_user }}`         | Account owner. Used to set paths and ownership of files and directories. |
-| `ssh_user_home`       | `/Users/{{ ssh_user }}` | User home directory. |
-| `ssh_ssh_dir_group`   | `{{ mb_group }}`        | Group for .ssh directory. |
-| `ssh_ssh_keys`        | `[]`                    | List of ssh keys. |
-| `ssh_authorized_keys` | `[]`                    | List of public ssh keys whose contents should be appended to the `authorized_keys` file. |
+| Name | Default | Description |
+|----------------|-------------|-------------|
+| `files_files`  | `[]`        | List of files, links, and directories to create or copy to the machine. |
 
 ### `ctorgalson.dotfiles` defaults
 
@@ -38,9 +34,13 @@ providing some very minimal default values for its dependencies.
 
 ### `ctorgalson.ssh_keys` defaults
 
-| Name | Default | Description |
-|----------------|-------------|-------------|
-| `files_files`  | `[]`        | List of files, links, and directories to create or copy to the machine. |
+| Name                  | Default                 | Description |
+|-----------------------|-------------------------|-------------|
+| `ssh_user`            | `{{ mb_user }}`         | Account owner. Used to set paths and ownership of files and directories. |
+| `ssh_user_home`       | `/Users/{{ ssh_user }}` | User home directory. |
+| `ssh_ssh_dir_group`   | `{{ mb_group }}`        | Group for .ssh directory. |
+| `ssh_ssh_keys`        | `[]`                    | List of ssh keys. |
+| `ssh_authorized_keys` | `[]`                    | List of public ssh keys whose contents should be appended to the `authorized_keys` file. |
 
 See the links in the Dependencies section, below, for complete lists of
 variables that can be used by the dependent roles.
