@@ -1,6 +1,6 @@
 ---
 - src: ctorgalson.dotfiles
-  version: v1.0.0
+  version: v1.1.0
 - src: ctorgalson.files
   version: v1.0.0
 - src: ctorgalson.macos_hostname
