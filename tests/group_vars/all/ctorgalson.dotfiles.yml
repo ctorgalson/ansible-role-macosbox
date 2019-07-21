@@ -5,7 +5,6 @@ dotfiles_repos:
     user: "macosbox"
     name: "dotfiles"
     version: "master"
-    become_user: "macosbox"
     whitelist:
       - ".gitconfig"
       - ".vim"
