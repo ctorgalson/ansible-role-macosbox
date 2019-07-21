@@ -34,9 +34,11 @@ def test_authorized_keys_contents(host):
 
 """ ctorgalson.macos_hostname tests """
 
-def test_hostname(host):
-    computer = host.check_output("scutil --get ComputerName")
-    localhost = host.check_output("scutil --get LocalHostName")
+@pytest.mark.parametrize("property,value", [
+    ("ComputerName", "macOS Box Travis"),
+    ("LocalHostName", "MacOsBoxTravis"),
+])
+def test_hostname(host, property, value):
+    output = host.check_output("scutil --get {}".format(property))
 
-    assert computer == "macOS Box Travis"
-    assert localhost == "MacOsBoxTravis"
+    assert output == value
