@@ -75,4 +75,4 @@ def test_dotfiles(host, dotfile):
 
     assert dir.is_directory
     assert file.is_file
-    assert link.is_link
+    assert link.is_symlink
