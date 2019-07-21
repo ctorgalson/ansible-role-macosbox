@@ -3,7 +3,7 @@ os: osx
 osx_image: xcode10.2
 
 install:
-  - pip3 install ansible ansible-lint yamllint
+  - pip3 install testinfra ansible ansible-lint yamllint
   - mv tests/_ansible.cfg ./ansible.cfg
   - mv tests/_.ansible-lint ./.ansible-lint
   - ansible-galaxy install -r tests/requirements.yml
@@ -13,6 +13,7 @@ script:
   - ansible-lint .
   - ansible-playbook tests/prepare.yml -vv
   - ansible-playbook tests/provision.yml -vvv
-  - ansible-playbook tests/test.yml -vv
+  - py.test -v test_myinfra.py
+  # - ansible-playbook tests/test.yml -vv
   - sudo ls -hal /Users/macosbox
   - sudo ls -hal /Users/macosbox/.ssh
