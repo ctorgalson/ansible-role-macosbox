@@ -10,7 +10,7 @@ import testinfra.utils.ansible_runner
     (".ssh/id_rsa.pub", 0o644, True),
     (".ssh/authorized_keys", 0o600, True),
 ])
-def test_ssh_dir_and_keys(host, mode, file):
+def test_ssh_dir_and_keys(host, path, mode, file):
     t = "is_file" if file else "is_directory"
     f = host.file("/Users/macosbox/{}".format(path))
 
