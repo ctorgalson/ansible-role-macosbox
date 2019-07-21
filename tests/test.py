@@ -34,4 +34,9 @@ def test_authorized_keys_contents(host):
 
 """ ctorgalson.macos_hostname tests """
 
+def test_hostname(host):
+    computer = host.check_output("scutil --get ComputerName")
+    localhost = host.check_output("scutil --get LocalHostName")
 
+    assert computer = "macOS Box Travis"
+    assert localhost = "MacOsBoxTravis"
