@@ -56,3 +56,22 @@ def test_directory_structure(host, path):
     assert dir.user == "macosbox"
     assert dir.group == "staff"
     assert dir.is_directory
+
+
+""" ctorgalson.dotfiles tests """
+
+@pytest.mark.parametrize("dotfile", [
+    (".gitconfig"),
+    (".vim"),
+    (".vimrc"),
+    (".zshrc"),
+])
+def test_dotfiles(host, dotfile):
+    home = "/Users/macosbox/{}"
+    config = "/Users/macosbox/.ansible-managed-config/dotfiles/{}"
+    file = host.file(config.format(dotfile))
+    link = host.file(home.format(dotfile))
+
+    assert config.format("").is_directory
+    assert file.is_file
+    assert link.is_link
