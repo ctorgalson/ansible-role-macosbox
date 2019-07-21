@@ -1,0 +1,11 @@
+---
+# ctorgalson.files vars.
+files_files:
+  - path: "/Users/macosbox/Dev"
+    state: directory
+    owner: "{{ mb_user }}"
+    group: "{{ mb_group }}"
+  - path: "/Users/macosbox/Dev/macosbox"
+    state: directory
+    owner: "{{ mb_user }}"
+    group: "{{ mb_group }}"

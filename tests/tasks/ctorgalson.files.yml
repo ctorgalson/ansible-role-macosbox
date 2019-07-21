@@ -1,0 +1,17 @@
+---
+# ctorgalson.files testing tasks.
+
+- name: Ensure files and directories exist.
+  block:
+    - name: Find subdirectories of user directory.
+      command: "find . -type d -maxdepth 2"
+      args:
+        chdir: "/Users/macosbox"
+      register: mb_test_user_directory_directories
+
+    - name: Check for files in output.
+      assert:
+        that: "directory_path in mb_test_user_directory_directories"
+      loop: "{{ files_files }}"
+      loop_control:
+        loop_var: directory_path

@@ -1,13 +1,9 @@
 ---
 # ssh-keys testing tasks.
 
-- name: Show contents of .ssh directory.
-  command: "ls -hal /Users/macosbox/.ssh"
-  register: ssh_dir_contents
-
-- name: Debug ssh_dir_contents.
-  debug:
-    var: ssh_dir_contents
+- name: Include role vars.
+  include_vars:
+    file: ../defaults/main.yml
 
 - name: Verify ssh directory exists and has correct properties.
   block:
@@ -37,7 +33,7 @@
       assert:
         that:
           - "mb_test_ssh_private_key.stat.exists"
-          - "mb_test_ssh_private_key.stat.mode == mb_ssh_private_key_mode"
+          - "mb_test_ssh_private_key.stat.mode == ssh_private_key_mode"
           - "mb_test_ssh_private_key.stat.pw_name == ssh_ssh_dir_owner"
           - "mb_test_ssh_private_key.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with private key existence, ownership, or mode."
@@ -51,7 +47,7 @@
       assert:
         that:
           - "mb_test_ssh_public_key.stat.exists"
-          - "mb_test_ssh_public_key.stat.mode == mb_ssh_public_key_mode"
+          - "mb_test_ssh_public_key.stat.mode == ssh_public_key_mode"
           - "mb_test_ssh_public_key.stat.pw_name == ssh_ssh_dir_owner"
           - "mb_test_ssh_public_key.stat.gr_name == ssh_ssh_dir_group"
         fail_msg: "Problem with public key existence, ownership, or mode."
@@ -60,7 +56,7 @@
   block:
     - name: Store contents of public key file.
       set_fact:
-        mb_test_ssh_public_key_contents: "{{ lookup('file', 'files/keys/id_rsa.pub') }}"
+        mb_test_ssh_public_key_contents: "{{ lookup('file', ssh_ssh_keys.1.src) }}"
 
     - name: Store contents of authorized_keys file.
       command: "cat id_rsa.pub"
@@ -75,7 +71,7 @@
 
     - name: Get information about authorized_keys file.
       stat:
-        path: "{{ ssh_ssh_dir }}/authorized_keys"
+        path: "{{ mb_test_ssh_ssh_dir }}/authorized_keys"
       register: mb_test_authorized_keys
 
     - name: Use stat information to verify file properties.
