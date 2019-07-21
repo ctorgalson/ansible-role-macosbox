@@ -14,7 +14,8 @@ def test_ssh_dir_and_keys(host, path, mode, file):
     t = "is_file" if file else "is_directory"
     f = host.file("/Users/macosbox/{}".format(path))
 
-    assert f.user == "macosbox"
-    assert f.group == "staff"
-    assert f.mode == mode
-    assert f.getattr(t)
+    with host.sudo():
+        assert f.user == "macosbox"
+        assert f.group == "staff"
+        assert f.mode == mode
+        assert f.getattr(t)
