@@ -42,3 +42,17 @@ def test_hostname(host, property, value):
     output = host.check_output("scutil --get {}".format(property))
 
     assert output == value
+
+
+""" ctorgalson.files tests """
+
+@pytest.mark.parametrize("path", [
+    "/Users/macosbox/Dev",
+    "/Users/macosbox/Dev/macosbox",
+])
+def test_directory_structure(host, path):
+    dir = host.file(path)
+
+    assert dir.user == "macosbox"
+    assert dir.group == "staff"
+    assert dir.is_directory
