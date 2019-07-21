@@ -38,5 +38,5 @@ def test_hostname(host):
     computer = host.check_output("scutil --get ComputerName")
     localhost = host.check_output("scutil --get LocalHostName")
 
-    assert computer = "macOS Box Travis"
-    assert localhost = "MacOsBoxTravis"
+    assert computer == "macOS Box Travis"
+    assert localhost == "MacOsBoxTravis"
