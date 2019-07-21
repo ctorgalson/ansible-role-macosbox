@@ -20,5 +20,8 @@ ssh_authorized_keys: []
 mh_localhostname: "macOsBox"
 mb_computername: "macOS Box"
 
+# ctorgalson.dotfiles vars.
+dotfiles_repos: []
+
 # ctorgalson.files vars.
 files_files: []

@@ -1,48 +1,110 @@
-Role Name
-=========
+# macOS Box
 
-A brief description of the role goes here.
+This is an Ansible role to help reproducibly setup macOS development systems.
 
-Requirements
-------------
+## Requirements
 
 Any pre-requisites that may not be covered by Ansible itself or the role should
 be mentioned here. For instance, if the role uses the EC2 module, it may be a
 good idea to mention in this section that the boto package is required.
 
-Role Variables
---------------
+## Role Variables
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+At present, this role provides just two of its own variables while also
+providing some very minimal default values for its dependencies.
 
-Dependencies
-------------
+### `ctorgalson.macosbox` (this role!) defaults
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+| Name       | Default | Description |
+|------------|---------|-------------|
+| `mb_user`  | `""`    | Convenience variable for use in other role variables. The name of the account the role is running to configure. **Required**. |
+| `mb_group` | `staff` | Convenience variable for use in other role variables. The default group for files in the account. Should seldom need changing. |
 
-Example Playbook
-----------------
+### `ctorgalson.files` defaults
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+| Name                  | Default                 | Description |
+|-----------------------|-------------------------|-------------|
+| `ssh_user`            | `{{ mb_user }}`         | Account owner. Used to set paths and ownership of files and directories. |
+| `ssh_user_home`       | `/Users/{{ ssh_user }}` | User home directory. |
+| `ssh_ssh_dir_group`   | `{{ mb_group }}`        | Group for .ssh directory. |
+| `ssh_ssh_keys`        | `[]`                    | List of ssh keys. |
+| `ssh_authorized_keys` | `[]`                    | List of public ssh keys whose contents should be appended to the `authorized_keys` file. |
+
+### `ctorgalson.dotfiles` defaults
+
+| Name | Default | Description |
+|------|---------|-------------|
+| `dotfiles_repos` | `[]` | List of dotfiles repositories to clone. |
+
+### `ctorgalson.ssh_keys` defaults
+
+| Name | Default | Description |
+|----------------|-------------|-------------|
+| `files_files`  | `[]`        | List of files, links, and directories to create or copy to the machine. |
+
+See the links in the Dependencies section, below, for complete lists of
+variables that can be used by the dependent roles.
+
+## Dependencies
+
+This role relies on a series of other Galaxy roles (mostly mine at
+present).
+
+_This_ role only sets enough defaults to test with. Some, all, many, or
+none of the variables available to the other roles may need to be set to
+create a useful build for your purposes, so please consult the READMEs for
+the other roles to find out what variables they make available:
+
+- [ctorgalson.dotfiles](https://galaxy.ansible.com/ctorgalson/dotfiles)
+- [ctorgalson.files](https://galaxy.ansible.com/ctorgalson/files)
+- [ctorgalson.macos_hostname](https://galaxy.ansible.com/ctorgalson/macos_hostname)
+- [ctorgalson.ssh_keys](https://galaxy.ansible.com/ctorgalson/ssh_keys)
+
+To see an example playbook, please see `tests/provision.yml`, and the
+contents of `tests/group_vars/`. The file `tests/test.py` may also be
+useful as a way of determining what results the provision playbook aims
+to achieve.
+
+## Example Playbook
 
     - hosts: servers
       roles:
-         - { role: ansible-role-devbox, x: 42 }
+         - ansible-role-macosbox
+      vars:
+        # ctorgalson.dotfiles vars.
+        dotfiles_repos:
+          - repo: "https://git@github.com/paulirish/dotfiles.git"
+            owner: "macosbox"
+            group: "staff"
+            name: "dotfiles"
+            version: "master"
+            whitelist:
+              - ".gitconfig"
+              - ".vimrc"
+        # ctorgalson.files vars.
+        files_files:
+          - path: "/Users/macosbox/Dev"
+            state: directory
+            owner: "macosbox"
+            group: "staff"
+        # ctorgalson.macos_hostname vars.
+        mh_localhostname: "MacOsBox"
+        mh_computername: "macOS Box"
+        # ctorgalson.ssh_keys vars.
+        ssh_user: "macosbox"
+        ssh_user_home: "/Users/macosbox"
+        ssh_ssh_dir_group: "staff"
+        ssh_ssh_keys:
+          - src: "files/keys/id_rsa"
+          - src: "files/keys/id_rsa.pub"
+        ssh_public_key_mode: "0644"
+        ssh_authorized_keys:
+          - "files/keys/authorized/id_rsa.pub"
 
-License
--------
+## License
 
-BSD
+GPLv3
 
-Author Information
-------------------
+## Author Information
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+Christopher Torgalson
