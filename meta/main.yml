@@ -20,3 +20,4 @@ dependencies:
   - role: ctorgalson.macos_hostname
   - role: ctorgalson.dotfiles
   - role: ctorgalson.files
+    become: true
