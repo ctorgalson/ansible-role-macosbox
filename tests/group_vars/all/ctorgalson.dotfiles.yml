@@ -10,4 +10,4 @@ dotfiles_repos:
       - ".gitconfig"
       - ".vim"
       - ".vimrc"
-      . ".zshrc"
+      - ".zshrc"
