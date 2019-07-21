@@ -18,4 +18,5 @@ galaxy_info:
 dependencies:
   - role: ctorgalson.ssh_keys
   - role: ctorgalson.macos_hostname
+  - role: ctorgalson.dotfiles
   - role: ctorgalson.files
