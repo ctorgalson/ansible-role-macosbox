@@ -2,7 +2,8 @@
 # ctorgalson.dotfiles vars.
 dotfiles_repos:
   - repo: "https://git@github.com/paulirish/dotfiles.git"
-    user: "macosbox"
+    owner: "macosbox"
+    group: "staff"
     name: "dotfiles"
     version: "master"
     whitelist:
