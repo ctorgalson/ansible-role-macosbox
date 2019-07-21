@@ -5,7 +5,7 @@ import pytest
 import testinfra.utils.ansible_runner
 
 def test_passwd_file(host):
-    d = host.file("/home/macosbox/.ssh")
+    d = host.file("/Users/macosbox/.ssh")
 
     assert d.user == "macosbox"
     assert d.group == "staff"
