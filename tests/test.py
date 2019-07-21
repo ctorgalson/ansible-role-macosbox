@@ -18,4 +18,4 @@ def test_ssh_dir_and_keys(host, path, mode, file):
         assert f.user == "macosbox"
         assert f.group == "staff"
         assert f.mode == mode
-        assert f.getattr(t)
+        assert getattr(f, t)
