@@ -69,9 +69,10 @@ def test_directory_structure(host, path):
 def test_dotfiles(host, dotfile):
     home = "/Users/macosbox/{}"
     config = "/Users/macosbox/.ansible-managed-config/dotfiles/{}"
+    dir = host.file(config.format(""))
     file = host.file(config.format(dotfile))
     link = host.file(home.format(dotfile))
 
-    assert config.format("").is_directory
+    assert dir.is_directory
     assert file.is_file
     assert link.is_link
