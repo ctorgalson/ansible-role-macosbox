@@ -16,6 +16,7 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
+  - role: elliotweiser.osx-command-line-tools
   - role: ctorgalson.ssh_keys
   - role: ctorgalson.macos_hostname
   - role: ctorgalson.dotfiles

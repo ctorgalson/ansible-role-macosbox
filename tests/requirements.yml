@@ -7,3 +7,5 @@
   version: v0.2.3
 - src: ctorgalson.ssh_keys
   version: v0.1.0
+- src: elliotweiser.osx-command-line-tools
+  version: 2.2.1
