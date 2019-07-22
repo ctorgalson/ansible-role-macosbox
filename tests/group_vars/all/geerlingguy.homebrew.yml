@@ -1,0 +1,16 @@
+# geerlingguy.homebrew vars.
+
+homebrew_cask_apps:
+  - "atom"
+  - "dash"
+  - "docker"
+  - "firefox"
+  - "iterm2"
+homebrew_installed_packages:
+  - "composer"
+  - "hostess"
+  - "mas"
+  - "node@10"
+  - "php"
+homebrew_taps: []
+homebrew_uninstalled_packages: []
