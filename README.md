@@ -13,6 +13,10 @@ good idea to mention in this section that the boto package is required.
 At present, this role provides just two of its own variables while also
 providing some very minimal default values for its dependencies.
 
+### `elliotweiser.osx-command-line-tools` defaults.
+
+None.
+
 ### `ctorgalson.macosbox` (this role!) defaults
 
 | Name       | Default | Description |
@@ -59,6 +63,7 @@ the other roles to find out what variables they make available:
 - [ctorgalson.files](https://galaxy.ansible.com/ctorgalson/files)
 - [ctorgalson.macos_hostname](https://galaxy.ansible.com/ctorgalson/macos_hostname)
 - [ctorgalson.ssh_keys](https://galaxy.ansible.com/ctorgalson/ssh_keys)
+- [elliotweiser-osx-cli-tools](https://galaxy.ansible.com/elliotweiser/osx-cli-tools)
 
 To see an example playbook, please see `tests/provision.yml`, and the
 contents of `tests/group_vars/`. The file `tests/test.py` may also be
@@ -71,6 +76,9 @@ to achieve.
       roles:
          - ansible-role-macosbox
       vars:
+        # elliotweiser.osx-command-line-tools vars.
+        # (None required)
+
         # ctorgalson.dotfiles vars.
         dotfiles_repos:
           - repo: "https://git@github.com/paulirish/dotfiles.git"
@@ -81,15 +89,18 @@ to achieve.
             whitelist:
               - ".gitconfig"
               - ".vimrc"
+
         # ctorgalson.files vars.
         files_files:
           - path: "/Users/macosbox/Dev"
             state: directory
             owner: "macosbox"
             group: "staff"
+
         # ctorgalson.macos_hostname vars.
         mh_localhostname: "MacOsBox"
         mh_computername: "macOS Box"
+
         # ctorgalson.ssh_keys vars.
         ssh_user: "macosbox"
         ssh_user_home: "/Users/macosbox"
