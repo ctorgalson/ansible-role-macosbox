@@ -1,1 +1,3 @@
 # elliotweiser.osx-command-line-tools vars.
+
+force_install: true
