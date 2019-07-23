@@ -7,7 +7,6 @@ dotfiles_repos:
     name: "dotfiles"
     version: "master"
     whitelist:
-      - ".gitconfig"
       - ".vim"
       - ".vimrc"
       - ".zshrc"
