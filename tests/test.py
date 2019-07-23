@@ -61,7 +61,6 @@ def test_directory_structure(host, path):
 """ ctorgalson.dotfiles tests """
 
 @pytest.mark.parametrize("dotfile,type", [
-    (".gitconfig", "file"),
     (".vim", "directory"),
     (".vimrc", "file"),
     (".zshrc", "file"),
@@ -77,3 +76,9 @@ def test_dotfiles(host, dotfile, type):
     assert dir.is_directory
     assert getattr(file, is_type)
     assert link.is_symlink
+
+
+""" elliotweiser.osx-command-line-tools tests """
+
+
+
