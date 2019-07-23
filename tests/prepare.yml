@@ -7,4 +7,4 @@
   tasks:
     - name: Create user for testing.
       user:
-        name: macosbox
+        name: travis

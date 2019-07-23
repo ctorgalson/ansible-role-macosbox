@@ -1,2 +1,3 @@
+---
 # ctorgalson.macosbox vars.
-mb_user: "macosbox"
+mb_user: "travis"

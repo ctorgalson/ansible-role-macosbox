@@ -2,12 +2,11 @@
 # ctorgalson.dotfiles vars.
 dotfiles_repos:
   - repo: "https://git@github.com/paulirish/dotfiles.git"
-    owner: "macosbox"
+    owner: "travis"
     group: "staff"
     name: "dotfiles"
     version: "master"
     whitelist:
-      - ".gitconfig"
       - ".vim"
       - ".vimrc"
       - ".zshrc"

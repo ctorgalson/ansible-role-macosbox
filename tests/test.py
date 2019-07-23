@@ -15,17 +15,17 @@ import testinfra.utils.ansible_runner
 ])
 def test_ssh_dir_and_keys(host, path, mode, file):
     type = "is_file" if file else "is_directory"
-    file = host.file("/Users/macosbox/{}".format(path))
+    file = host.file("/Users/travis/{}".format(path))
 
     with host.sudo():
-        assert file.user == "macosbox"
+        assert file.user == "travis"
         assert file.group == "staff"
         assert file.mode == mode
         assert getattr(file, type)
 
 
 def test_authorized_keys_contents(host):
-    dest = host.file("/Users/macosbox/.ssh/authorized_keys")
+    dest = host.file("/Users/travis/.ssh/authorized_keys")
     source = host.file("./tests/files/keys/id_rsa.pub")
 
     with host.sudo():
@@ -47,13 +47,13 @@ def test_hostname(host, property, value):
 """ ctorgalson.files tests """
 
 @pytest.mark.parametrize("path", [
-    "/Users/macosbox/Dev",
-    "/Users/macosbox/Dev/macosbox",
+    "/Users/travis/Dev",
+    "/Users/travis/Dev/travis",
 ])
 def test_directory_structure(host, path):
     dir = host.file(path)
 
-    assert dir.user == "macosbox"
+    assert dir.user == "travis"
     assert dir.group == "staff"
     assert dir.is_directory
 
@@ -61,14 +61,13 @@ def test_directory_structure(host, path):
 """ ctorgalson.dotfiles tests """
 
 @pytest.mark.parametrize("dotfile,type", [
-    (".gitconfig", "file"),
     (".vim", "directory"),
     (".vimrc", "file"),
     (".zshrc", "file"),
 ])
 def test_dotfiles(host, dotfile, type):
-    home = "/Users/macosbox/{}"
-    config = "/Users/macosbox/.ansible-managed-config/dotfiles/{}"
+    home = "/Users/travis/{}"
+    config = "/Users/travis/.ansible-managed-config/dotfiles/{}"
     dir = host.file(config.format(""))
     file = host.file(config.format(dotfile))
     link = host.file(home.format(dotfile))
@@ -77,3 +76,9 @@ def test_dotfiles(host, dotfile, type):
     assert dir.is_directory
     assert getattr(file, is_type)
     assert link.is_symlink
+
+
+""" elliotweiser.osx-command-line-tools tests """
+
+
+
