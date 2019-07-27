@@ -3,5 +3,14 @@
   hosts: all
   gather_facts: true
 
+  pre_tasks:
+    - name: Set mas_email fact.
+      set_fact:
+        mas_email: "{{ lookup('env','MAS_EMAIL') }}"
+
+    - name: Set mas_email fact.
+      set_fact:
+        mas_password: "{{ lookup('env','MAS_PASSWORD') }}"
+
   roles:
     - role: ansible-role-macosbox
