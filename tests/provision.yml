@@ -11,6 +11,7 @@
     - name: Set mas_email fact.
       set_fact:
         mas_password: "{{ lookup('env','MAS_PASSWORD') }}"
+      no_log: true
 
   roles:
     - role: ansible-role-macosbox
