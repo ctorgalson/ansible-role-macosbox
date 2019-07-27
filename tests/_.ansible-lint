@@ -5,3 +5,4 @@ exclude_paths:
   - /Users/travis/build/ctorgalson/ctorgalson.ssh_keys
   - /Users/travis/build/ctorgalson/elliotweiser.osx-command-line-tools
   - /Users/travis/build/ctorgalson/geerlingguy.homebrew
+  - /Users/travis/build/ctorgalson/geerlingguy.mas
