@@ -12,10 +12,27 @@ good idea to mention in this section that the boto package is required.
 
 At present, this role provides just two of its own variables while also
 providing some very minimal default values for its dependencies.
+Dependencies listed alphabetically. See `meta/main.yml` for execution
+order.
 
-### `elliotweiser.osx-command-line-tools` defaults.
+Follow the links to individual roles' Galaxy pages for complete lists of
+their variables.
 
-None.
+### `ctorgalson.dotfiles` defaults
+
+| Name             | Default | Description |
+|------------------|---------|-------------|
+| `dotfiles_repos` | `[]`    | "A list of dotfiles to clone and use to create dotfiles in the user directory." |
+
+See: [ctorgalson.dotfiles](https://galaxy.ansible.com/ctorgalson/dotfiles)
+
+### `ctorgalson.files` defaults
+
+| Name          | Default | Description |
+|---------------|---------|-------------|
+| `files_files` | `[]`    | "a list of [file] objects using Ansible File module params." |
+
+See: [ctorgalson.files](https://galaxy.ansible.com/ctorgalson/files)
 
 ### `ctorgalson.macosbox` (this role!) defaults
 
@@ -24,30 +41,42 @@ None.
 | `mb_user`  | `""`    | Convenience variable for use in other role variables. The name of the account the role is running to configure. **Required**. |
 | `mb_group` | `staff` | Convenience variable for use in other role variables. The default group for files in the account. Should seldom need changing. |
 
-### `ctorgalson.files` defaults
-
-| Name | Default | Description |
-|----------------|-------------|-------------|
-| `files_files`  | `[]`        | List of files, links, and directories to create or copy to the machine. |
-
-### `ctorgalson.dotfiles` defaults
-
-| Name | Default | Description |
-|------|---------|-------------|
-| `dotfiles_repos` | `[]` | List of dotfiles repositories to clone. |
-
 ### `ctorgalson.ssh_keys` defaults
 
 | Name                  | Default                 | Description |
 |-----------------------|-------------------------|-------------|
-| `ssh_user`            | `{{ mb_user }}`         | Account owner. Used to set paths and ownership of files and directories. |
-| `ssh_user_home`       | `/Users/{{ ssh_user }}` | User home directory. |
-| `ssh_ssh_dir_group`   | `{{ mb_group }}`        | Group for .ssh directory. |
-| `ssh_ssh_keys`        | `[]`                    | List of ssh keys. |
-| `ssh_authorized_keys` | `[]`                    | List of public ssh keys whose contents should be appended to the `authorized_keys` file. |
+| `ssh_user`            | `{{ mb_user }}`         | "Name of ssh key owner." |
+| `ssh_user_home`       | `/Users/{{ ssh_user }}` | "Derived path to owner's home directory." |
+| `ssh_ssh_dir_group`   | `{{ mb_group }}`        | "Group of .ssh directory." |
+| `ssh_ssh_keys`        | `[]`                    | "List of ssh keys." |
+| `ssh_authorized_keys` | `[]`                    | "List of paths to public keys to be added to authorized_keys file." |
 
-See the links in the Dependencies section, below, for complete lists of
-variables that can be used by the dependent roles.
+See: [ctorgalson.ssh_keys](https://galaxy.ansible.com/ctorgalson/ssh_keys)
+
+### `elliotweiser.osx-command-line-tools` defaults
+
+None.
+
+See: [elliotweiser-osx-cli-tools](https://galaxy.ansible.com/elliotweiser/osx-cli-tools)
+
+### `geerlingguy.homebrew` defaults
+
+| Name                            | Default | Description |
+|---------------------------------|---------|-------------|
+| `homebrew_cask_apps`            | `[]`    | "Apps you would like to have installed via `cask`." |
+| `homebrew_installed_packages`   | `[]`    | "Packages you would like to make sure are installed via `brew install`. " |
+| `homebrew_taps`                 | `[]`    | "Taps you would like to make sure Homebrew has tapped." |
+| `homebrew_uninstalled_packages` | `[]`    | "Packages you would like to make sure are _uninstalled_." |
+
+See: [geerlingguy.homebrew](https://galaxy.ansible.com/geerlingguy/homebrew)
+
+### `geerlingguy.mas` defaults
+
+| Name                 | Default | Description |
+|----------------------|---------|-------------|
+| `mas_installed_apps` | `[]`    | "A list of [app store] apps to ensure are installed on the computer." |
+
+See: [geerlingguy.mas](https://galaxy.ansible.com/geerlingguy/mas)
 
 ## Dependencies
 
@@ -64,6 +93,8 @@ the other roles to find out what variables they make available:
 - [ctorgalson.macos_hostname](https://galaxy.ansible.com/ctorgalson/macos_hostname)
 - [ctorgalson.ssh_keys](https://galaxy.ansible.com/ctorgalson/ssh_keys)
 - [elliotweiser-osx-cli-tools](https://galaxy.ansible.com/elliotweiser/osx-cli-tools)
+- [geerlingguy.homebrew](https://galaxy.ansible.com/geerlingguy/homebrew)
+- [geerlingguy.mas](https://galaxy.ansible.com/geerlingguy/mas)
 
 To see an example playbook, please see `tests/provision.yml`, and the
 contents of `tests/group_vars/`. The file `tests/test.py` may also be
@@ -111,6 +142,22 @@ to achieve.
         ssh_public_key_mode: "0644"
         ssh_authorized_keys:
           - "files/keys/authorized/id_rsa.pub"
+
+        # elliotweiser.osx-cli-tools vars.
+
+        # geerlingguy.homebrew vars.
+        homebrew_cask_apps:
+          - "firefox"
+          - "iterm2"
+        homebrew_installed_packages:
+          - "composer"
+          - "mas"
+          - "node@10"
+          - "php"
+
+        # geerlingguy.mas vars.
+        - id: "409183694"
+          name: "Keynote (9.1)"
 
 ## License
 
