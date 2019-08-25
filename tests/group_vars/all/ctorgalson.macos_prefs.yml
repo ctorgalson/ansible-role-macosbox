@@ -1,0 +1,4 @@
+---
+# ctorgalson.macos_prefs vars.
+
+prefs_prefs_directory: "{{ playbook_dir }}/files/prefs"
