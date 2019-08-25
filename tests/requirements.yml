@@ -5,6 +5,8 @@
   version: v1.0.0
 - src: ctorgalson.macos_hostname
   version: v0.2.3
+- src: ctorgalson.macos_prefs
+  version: v0.1.0
 - src: ctorgalson.ssh_keys
   version: v0.1.0
 - src: elliotweiser.osx-command-line-tools
