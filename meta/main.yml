@@ -21,6 +21,9 @@ dependencies:
   - role: elliotweiser.osx-command-line-tools
   - role: geerlingguy.homebrew
   - role: geerlingguy.mas
+    when:
+      - "ansible_connection == 'local'"
+      - "ansible_user_id != 'travis'"
   - role: ctorgalson.dotfiles
   - role: ctorgalson.files
   - role: ctorgalson.macos_prefs
