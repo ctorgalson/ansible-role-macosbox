@@ -20,6 +20,7 @@ dependencies:
   - role: ctorgalson.macos_hostname
   - role: elliotweiser.osx-command-line-tools
   - role: geerlingguy.homebrew
+  # Special conditions apply to Mas. See README for details.
   - role: geerlingguy.mas
     when:
       - "ansible_connection == 'local'"

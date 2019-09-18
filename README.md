@@ -71,6 +71,10 @@ See: [geerlingguy.homebrew](https://galaxy.ansible.com/geerlingguy/homebrew)
 
 ### `geerlingguy.mas` defaults
 
+Note that [`geerlingguy.mas` may not function correctly over ssh
+connections](https://github.com/geerlingguy/ansible-role-mas/issues/7), and
+is therefore disabled except when this role is running on a local connection.
+
 | Name                 | Default | Description |
 |----------------------|---------|-------------|
 | `mas_installed_apps` | `[]`    | "A list of [app store] apps to ensure are installed on the computer." |
