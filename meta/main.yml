@@ -20,7 +20,11 @@ dependencies:
   - role: ctorgalson.macos_hostname
   - role: elliotweiser.osx-command-line-tools
   - role: geerlingguy.homebrew
+  # Special conditions apply to Mas. See README for details.
   - role: geerlingguy.mas
+    when:
+      - "ansible_connection == 'local'"
+      - "ansible_user_id != 'travis'"
   - role: ctorgalson.dotfiles
   - role: ctorgalson.files
   - role: ctorgalson.macos_prefs
