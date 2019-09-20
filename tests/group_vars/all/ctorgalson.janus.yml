@@ -7,4 +7,4 @@ janus_required_packages:
 
 janus_user:
   - name: "travis"
-    group: "travis"
+    group: "staff"
