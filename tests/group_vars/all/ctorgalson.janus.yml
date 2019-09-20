@@ -1,0 +1,10 @@
+---
+# ctorgalson.janus vars.
+
+janus_required_packages:
+  - "rake"
+  - "vim"
+
+janus_user:
+  - name: "travis"
+    group: "travis"
