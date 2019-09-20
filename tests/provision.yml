@@ -3,6 +3,11 @@
   hosts: all
   gather_facts: true
 
+  vars:
+    janus_user:
+      - name: "travis"
+        group: "staff"
+
   pre_tasks:
     - name: Debug janus-related vars.
       debug:
