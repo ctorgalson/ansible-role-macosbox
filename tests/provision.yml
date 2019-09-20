@@ -3,5 +3,10 @@
   hosts: all
   gather_facts: true
 
+  pre_tasks:
+    - name: Debug janus-related vars.
+      debug:
+        var: "{{ janus_user }}"
+
   roles:
     - role: ansible-role-macosbox
