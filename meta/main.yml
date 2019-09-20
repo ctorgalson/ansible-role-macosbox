@@ -27,4 +27,8 @@ dependencies:
       - "ansible_user_id != 'travis'"
   - role: ctorgalson.dotfiles
   - role: ctorgalson.files
+  # Add tests!
+  - role: ctorgalson.releases
+  # Add tests!
+  - role: ctorgalson.nvm
   - role: ctorgalson.macos_prefs
