@@ -3,14 +3,22 @@
   version: v1.2.0
 - src: ctorgalson.files
   version: v1.0.0
+- src: ctorgalson.janus
+  version: 2.0.2
 - src: ctorgalson.macos_hostname
   version: v0.2.3
 - src: ctorgalson.macos_prefs
   version: v0.1.0
+- src: ctorgalson.nvm
+  version: v2.0.0
+- src: ctorgalson.releases
+  version: v1.0.3
 - src: ctorgalson.ssh_keys
   version: v0.1.0
 - src: elliotweiser.osx-command-line-tools
   version: 2.2.1
+- src: fubarhouse.macdock
+  version: 2.3.0
 - src: geerlingguy.homebrew
   version: 2.9.0
 - src: geerlingguy.mas
