@@ -31,4 +31,6 @@ dependencies:
   - role: ctorgalson.releases
   # Add tests!
   - role: ctorgalson.nvm
+  # Add tests!
+  - role: ctorgalson.janus
   - role: ctorgalson.macos_prefs
