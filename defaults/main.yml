@@ -4,6 +4,7 @@
 # ctorgalson.macosbox vars.
 mb_user: "macosbox"
 mb_group: "staff"
+mb_run_geerlingguy_mas: false
 
 # ctorgalson.ssh-keys vars.
 #
