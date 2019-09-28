@@ -5,8 +5,8 @@
 
   vars:
     janus_user:
-      - name: "travis"
-        group: "staff"
+      name: "travis"
+      group: "staff"
 
   pre_tasks:
     - name: Debug janus-related vars.
