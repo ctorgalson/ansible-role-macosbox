@@ -39,6 +39,7 @@ See: [ctorgalson.files](https://galaxy.ansible.com/ctorgalson/files)
 |------------|---------|-------------|
 | `mb_user`  | `""`    | Convenience variable for use in other role variables. The name of the account the role is running to configure. **Required**. |
 | `mb_group` | `staff` | Convenience variable for use in other role variables. The default group for files in the account. Should seldom need changing. |
+| `mb_run_geerlingguy_mas` | `false` | Whether or not to run the `geerlingguy.mas` role (the role sometimes has trouble running over ssh connections, and won't run in a playbook using `become`). |
 
 ### `ctorgalson.ssh_keys` defaults
 

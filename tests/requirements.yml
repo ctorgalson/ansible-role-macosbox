@@ -4,7 +4,7 @@
 - src: ctorgalson.files
   version: v1.0.0
 - src: ctorgalson.janus
-  version: 2.0.2
+  version: v2.1.1
 - src: ctorgalson.macos_hostname
   version: v0.2.3
 - src: ctorgalson.macos_prefs
