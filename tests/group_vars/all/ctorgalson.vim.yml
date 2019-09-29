@@ -1,0 +1,21 @@
+---
+# ctorgalson.vim vars.
+vim_owner: "{{ mb_user }}"
+vim_group: "{{ mb_group }}"
+vim_start_installed_plugins:
+  - repo: "https://github.com/airblade/vim-gitgutter.git"
+  - repo: "https://github.com/altercation/vim-colors-solarized.git"
+  - repo: "https://github.com/ap/vim-css-color.git"
+  - repo: "https://github.com/editorconfig/editorconfig-vim.git"
+  - repo: "https://github.com/itchyny/lightline.vim.git"
+  - repo: "https://github.com/junegunn/fzf.vim.git"
+  - repo: "https://github.com/junegunn/goyo.vim.git"
+  - repo: "https://github.com/mattn/emmet-vim.git"
+  - repo: "https://github.com/ntpeters/vim-better-whitespace.git"
+  - repo: "https://github.com/pangloss/vim-javascript.git"
+  - repo: "https://github.com/scrooloose/nerdtree.git"
+  - repo: "https://github.com/scrooloose/nerdcommenter.git"
+  - repo: "https://github.com/sheerun/vim-polyglot.git"
+  - repo: "https://github.com/tpope/vim-fugitive.git"
+  - repo: "https://github.com/tpope/vim-surround.git"
+  - repo: "https://github.com/vim-vdebug/vdebug.git"

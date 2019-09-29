@@ -25,6 +25,13 @@ dependencies:
     when:
       - "ansible_connection == 'local'"
       - "ansible_user_id != 'travis'"
+      - "mb_run_geerlingguy_mas"
   - role: ctorgalson.dotfiles
   - role: ctorgalson.files
+  # Add tests!
+  - role: ctorgalson.releases
+  # Add tests!
+  - role: ctorgalson.nvm
+  # Add tests!
+  - role: ctorgalson.vim
   - role: ctorgalson.macos_prefs

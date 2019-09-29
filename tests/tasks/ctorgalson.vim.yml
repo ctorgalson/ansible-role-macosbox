@@ -1,0 +1,6 @@
+---
+# Vim testing tasks.
+
+- name: Include role vars.
+  include_vars:
+    file: ../defaults/main.yml

@@ -1,3 +1,4 @@
 ---
 # ctorgalson.macosbox vars.
 mb_user: "travis"
+mb_group: "staff"
