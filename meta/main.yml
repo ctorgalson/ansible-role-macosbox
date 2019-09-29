@@ -32,5 +32,5 @@ dependencies:
   # Add tests!
   - role: ctorgalson.nvm
   # Add tests!
-  - role: ctorgalson.janus
+  - role: ctorgalson.vim
   - role: ctorgalson.macos_prefs
