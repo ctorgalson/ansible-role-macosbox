@@ -1,7 +1,7 @@
 ---
 # ctorgalson.vim vars.
 vim_owner: "{{ mb_user }}"
-vim_group: "{{ mb_user }}"
+vim_group: "{{ mb_group }}"
 vim_start_installed_plugins:
   - repo: "https://github.com/airblade/vim-gitgutter.git"
   - repo: "https://github.com/altercation/vim-colors-solarized.git"
