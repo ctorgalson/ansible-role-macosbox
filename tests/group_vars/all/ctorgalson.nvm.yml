@@ -2,3 +2,5 @@
 # ctorgalson.nvm vars.
 
 nvm_user:
+  name: "travis"
+  rc_file: ".bashrc"
