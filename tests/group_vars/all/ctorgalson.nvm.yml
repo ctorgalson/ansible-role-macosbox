@@ -1,4 +1,4 @@
 ---
 # ctorgalson.nvm vars.
 
-nvm_users: []
+nvm_user:
