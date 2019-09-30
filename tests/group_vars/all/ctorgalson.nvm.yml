@@ -1,4 +1,6 @@
 ---
 # ctorgalson.nvm vars.
 
-nvm_users: []
+nvm_user:
+  name: "travis"
+  rc_file: ".bashrc"

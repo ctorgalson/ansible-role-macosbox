@@ -10,7 +10,7 @@
 - src: ctorgalson.macos_prefs
   version: v0.1.0
 - src: ctorgalson.nvm
-  version: v2.0.0
+  version: v2.1.0
 - src: ctorgalson.releases
   version: v1.0.3
 - src: ctorgalson.ssh_keys
