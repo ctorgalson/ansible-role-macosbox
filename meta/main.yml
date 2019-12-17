@@ -17,21 +17,53 @@ galaxy_info:
 
 dependencies:
   - role: ctorgalson.ssh_keys
+    tags:
+      - config
+      - keys
   - role: ctorgalson.macos_hostname
+    tags:
+      - config
+      - system
   - role: elliotweiser.osx-command-line-tools
+    tags:
+      - config
+      - system
   - role: geerlingguy.homebrew
+    tags:
+      - homebrew
+      - packages
   # Special conditions apply to Mas. See README for details.
   - role: geerlingguy.mas
     when:
       - "ansible_connection == 'local'"
       - "ansible_user_id != 'travis'"
       - "mb_run_geerlingguy_mas"
+    tags:
+      - mas
+      - packages
   - role: ctorgalson.dotfiles
+    tags:
+      - config
+      - system
   - role: ctorgalson.files
+    tags:
+      - files
   # Add tests!
   - role: ctorgalson.releases
+    tags:
+      - packages
+      - releases
   # Add tests!
   - role: ctorgalson.nvm
+    tags:
+      - node
+      - packages
   # Add tests!
   - role: ctorgalson.vim
+    tags:
+      - cli
+      - vim
   - role: ctorgalson.macos_prefs
+    tags:
+      - packages
+      - releases
